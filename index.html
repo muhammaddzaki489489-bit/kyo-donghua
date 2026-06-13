@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KyoDonghua</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Oxanium:wght@200;400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Ambient background particles -->
+  <div class="bg-particles" id="bgParticles"></div>
+  <div class="scanline"></div>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-text">DonghuaVerse</span>
+    </div>
+    <nav class="nav-links">
+      
+      
+      
+      
+      
+      
+      
+    </nav>
+    <div class="nav-search">
+      <input type="text" id="searchInput" placeholder="Cari donghua..." class="search-input" />
+      <button class="search-btn" id="searchBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+    </div>
+
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" class="mobile-link" data-page="home">Home</a>
+    
+    
+    
+    <a href="#" class="mobile-link" data-page="schedule">Schedule</a>
+    <a href="#" class="mobile-link" data-page="genres">Genre</a>
+    <a href="#" class="mobile-link" data-page="seasons">Seasons</a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- PAGE: HOME -->
+    <section class="page active" id="page-home">
+      <div class="page-header">
+        <div class="page-title-wrapper">
+          
+          
+        </div>
+      </div>
+
+
+
+
+      </div>
+      <div id="homeGrid">
+        <div id="homeSearchResults" style="display:none"></div>
+        <div id="homeNormalContent">
+          <div class="loading-state">
+            <div class="loader"></div>
+            <p>Memuat data...</p>
+          </div>
+        </div>
+      </div>
+      <div class="pagination" id="homePagination"></div>
+    </section>
+
+    <!-- PAGE: ONGOING -->
+    <section class="page" id="page-ongoing">
+      <div class="page-header">
+        <h1 class="page-title">Sedang <span class="title-accent">Tayang</span></h1>
+        <p class="page-subtitle">Donghua yang masih ongoing</p>
+      </div>
+      <div class="grid-container" id="ongoingGrid">
+        <div class="loading-state"><div class="loader"></div><p>Memuat data...</p></div>
+      </div>
+      <div class="pagination" id="ongoingPagination"></div>
+    </section>
+
+    <!-- PAGE: COMPLETED -->
+    <section class="page" id="page-completed">
+      <div class="page-header">
+        <h1 class="page-title">Sudah <span class="title-accent">Tamat</span></h1>
+        <p class="page-subtitle">Donghua yang telah selesai</p>
+      </div>
+      <div class="grid-container" id="completedGrid">
+        <div class="loading-state"><div class="loader"></div><p>Memuat data...</p></div>
+      </div>
+      <div class="pagination" id="completedPagination"></div>
+    </section>
+
+    <!-- PAGE: LATEST -->
+    <section class="page" id="page-latest">
+      <div class="page-header">
+        
+        <p class="page-subtitle">Anime China terbaru, sub Indonesia</p>
+      </div>
+      <div class="grid-container" id="latestGrid">
+        <div class="loading-state"><div class="loader"></div><p>Memuat data...</p></div>
+      </div>
+      <div class="pagination" id="latestPagination"></div>
+    </section>
+
+    <!-- PAGE: SCHEDULE -->
+    <section class="page" id="page-schedule">
+      <div class="page-header">
+        <h1 class="page-title">Jadwal <span class="title-accent">Tayang</span></h1>
+        <p class="page-subtitle">Kapan donghua favoritmu tayang?</p>
+      </div>
+      <div id="scheduleContainer">
+        <div class="loading-state"><div class="loader"></div><p>Memuat jadwal...</p></div>
+      </div>
+    </section>
+
+    <!-- PAGE: GENRES -->
+    <section class="page" id="page-genres">
+      <div class="page-header">
+        <h1 class="page-title">Semua <span class="title-accent">Genre</span></h1>
+        <p class="page-subtitle">Pilih genre favorit kamu</p>
+      </div>
+      <div id="genreListContainer">
+        <div class="loading-state"><div class="loader"></div><p>Memuat genre...</p></div>
+      </div>
+      <!-- Genre detail (donghua by genre) -->
+      <div id="genreDetailSection" style="display:none;">
+        <button class="back-btn" id="backFromGenre">← Kembali ke Genre</button>
+        <h2 class="section-title" id="genreDetailTitle"></h2>
+        <div class="grid-container" id="genreGrid"></div>
+        <div class="pagination" id="genrePagination"></div>
+      </div>
+    </section>
+
+    <!-- PAGE: SEASONS -->
+    <section class="page" id="page-seasons">
+      <div class="page-header">
+        <h1 class="page-title">Musim & <span class="title-accent">Tahun</span></h1>
+        <p class="page-subtitle">Jelajahi donghua berdasarkan tahun rilis</p>
+      </div>
+      <div class="year-selector" id="yearSelector"></div>
+      <div class="grid-container" id="seasonsGrid">
+        <div class="loading-state"><div class="loader"></div><p>Pilih tahun untuk mulai...</p></div>
+      </div>
+    </section>
+
+    <!-- PAGE: DETAIL -->
+    <section class="page" id="page-detail">
+      <button class="back-btn" id="backFromDetail">← Kembali</button>
+      <div id="detailContainer">
+        <div class="loading-state"><div class="loader"></div><p>Memuat detail...</p></div>
+      </div>
+    </section>
+
+    <!-- PAGE: EPISODE -->
+    <section class="page" id="page-episode">
+      <button class="back-btn" id="backFromEpisode">← Kembali ke Detail</button>
+      <div id="episodeContainer">
+        <div class="loading-state"><div class="loader"></div><p>Memuat episode...</p></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast"></div>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <a href="#" class="bn-item active" data-page="home">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </a>
+
+    <a href="#" class="bn-item" data-page="schedule">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span>Jadwal</span>
+    </a>
+    <a href="#" class="bn-item" data-page="genres">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Genre</span>
+    </a>
+    <a href="#" class="bn-item" data-page="seasons">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span>Seasons</span>
+    </a>
+    <a href="#" class="bn-item" id="bnSearch">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Cari</span>
+    </a>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
